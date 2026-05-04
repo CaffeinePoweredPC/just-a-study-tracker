@@ -38,8 +38,14 @@ class SubjectManager: #container for subject objects
             raise IndexError("subject not found")
         self.subject_list.remove(subject)
 
-    def convert_to_json(self) -> list[dict[str,str]]:
+    def compile_to_list(self) -> list[dict[str,str]]:
+        converted_list = []
+        for subject in self.subject_list:
+            converted_list.append(subject.jsonify())
+        return converted_list
 
+    def decompile_to_obj(self):
+        pass
 
 #Session & SessionTracker below serve only to contain current / past sessions
 class Session:
